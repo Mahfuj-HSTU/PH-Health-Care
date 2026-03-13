@@ -1,7 +1,7 @@
 import express, { Application, NextFunction, Request, Response } from 'express'
 import { routes } from './app/routes'
-import globalErrorHandler from './app/middleware/globalErrorHandler'
 import notFoundMiddleware from './app/middleware/notFount'
+import { globalErrorHandler } from './app/middleware/globalErrorHandler'
 
 const app: Application = express()
 // Enable URL-encoded form data parsing
@@ -15,7 +15,7 @@ app.use('/api/v1', routes)
 
 // Basic route
 app.get('/', (req: Request, res: Response) => {
-	res.send('Hello, TypeScript + Express!')
+  res.send('Hello, TypeScript + Express!')
 })
 
 app.use(globalErrorHandler)
